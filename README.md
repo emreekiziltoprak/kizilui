@@ -1,5 +1,7 @@
 # KizilUI
 
+![KizilUI Logo](./logo.jpg)
+
 KizilUI is a React-based UI toolkit for the web.
 
 It is optimized for building complex, data-dense web interfaces for desktop applications.
