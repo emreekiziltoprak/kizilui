@@ -1,0 +1,51 @@
+@import "../variables";
+
+.kz-spinner {
+  display: inline-block;
+  position: relative;
+
+  .kz-spinner-track {
+    stroke: rgba(92, 112, 128, 0.2);
+  }
+
+  .kz-spinner-head {
+    stroke: $gray1;
+    stroke-dasharray: 80px, 200px;
+    stroke-dashoffset: 0px;
+    animation: kz-spinner-animation 1.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  &.kz-intent-primary .kz-spinner-head {
+    stroke: $primary-color;
+  }
+
+  &.kz-intent-success .kz-spinner-head {
+    stroke: $success-color;
+  }
+
+  &.kz-intent-warning .kz-spinner-head {
+    stroke: $warning-color;
+  }
+
+  &.kz-intent-danger .kz-spinner-head {
+    stroke: $danger-color;
+  }
+}
+
+@keyframes kz-spinner-animation {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0px;
+  }
+
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
+  }
+}

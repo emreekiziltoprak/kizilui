@@ -1,0 +1,43 @@
+{
+  "name": "@kizilui/storybook",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/storybook",
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn storybook dev -p 6012",
+        "cwd": "apps/storybook"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn storybook build",
+        "cwd": "apps/storybook"
+      },
+      "outputs": ["{projectRoot}/storybook-static"]
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn storybook preview",
+        "cwd": "apps/storybook"
+      },
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["apps/storybook/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": ["scope:storybook", "type:app"],
+  "implicitDependencies": [
+    "@kizilui/core",
+    "@kizilui/icons", 
+    "@kizilui/colors"
+  ]
+}

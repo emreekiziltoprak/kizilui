@@ -1,0 +1,23 @@
+@import "../variables";
+
+.kz-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  vertical-align: text-bottom;
+
+  &.kz-intent-primary {
+    color: $primary-color;
+  }
+
+  &.kz-intent-success {
+    color: $success-color;
+  }
+
+  &.kz-intent-warning {
+    color: $warning-color;
+  }
+
+  &.kz-intent-danger {
+    color: $danger-color;
+  }
+}

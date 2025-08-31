@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "Bash(yarn install)",
+      "Bash(yarn storybook:*)",
+      "Bash(npx storybook dev:*)",
+      "Bash(yarn remove:*)",
+      "Bash(yarn add:*)",
+      "Bash(yarn info:*)",
+      "Bash(npx storybook@latest upgrade:*)",
+      "Bash(yarn list)",
+      "Bash(npx storybook@latest init:*)",
+      "Bash(yarn)",
+      "Bash(yarn run:*)",
+      "Bash(yarn compile)",
+      "Bash(npx tsc:*)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(npm run storybook:*)",
+      "Bash(npm install:*)",
+      "Read(C:\\/**)",
+      "Bash(yarn lint-fix)",
+      "Bash(node:*)",
+      "Bash(yarn cache:*)",
+      "Bash(yarn config:*)",
+      "Bash(yarn dev:storybook)",
+      "Bash(taskkill:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

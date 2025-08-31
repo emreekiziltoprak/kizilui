@@ -1,0 +1,111 @@
+@import "../variables";
+
+.kz-popover {
+  box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 4px 8px rgba(16, 22, 26, 0.2), 0 18px 46px 6px rgba(16, 22, 26, 0.08);
+  background: $white;
+  border-radius: 3px;
+  display: inline-block;
+  z-index: 30;
+
+  .kz-popover-arrow {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+
+    &::before {
+      border: 14px solid transparent;
+      content: "";
+      display: inline-block;
+      position: absolute;
+    }
+
+    &::after {
+      border: 13px solid transparent;
+      content: "";
+      display: inline-block;
+      position: absolute;
+    }
+  }
+
+  .kz-popover-content {
+    position: relative;
+    border-radius: 3px;
+  }
+
+  // Arrow positioning
+  &.kz-popover-top .kz-popover-arrow {
+    bottom: -14px;
+    left: 50%;
+    margin-left: -14px;
+
+    &::before {
+      border-bottom: none;
+      border-top-color: rgba(16, 22, 26, 0.1);
+      top: -14px;
+    }
+
+    &::after {
+      border-bottom: none;
+      border-top-color: $white;
+      top: -13px;
+    }
+  }
+
+  &.kz-popover-bottom .kz-popover-arrow {
+    top: -14px;
+    left: 50%;
+    margin-left: -14px;
+
+    &::before {
+      border-top: none;
+      border-bottom-color: rgba(16, 22, 26, 0.1);
+      bottom: -14px;
+    }
+
+    &::after {
+      border-top: none;
+      border-bottom-color: $white;
+      bottom: -13px;
+    }
+  }
+
+  &.kz-popover-left .kz-popover-arrow {
+    right: -14px;
+    top: 50%;
+    margin-top: -14px;
+
+    &::before {
+      border-right: none;
+      border-left-color: rgba(16, 22, 26, 0.1);
+      left: -14px;
+    }
+
+    &::after {
+      border-right: none;
+      border-left-color: $white;
+      left: -13px;
+    }
+  }
+
+  &.kz-popover-right .kz-popover-arrow {
+    left: -14px;
+    top: 50%;
+    margin-top: -14px;
+
+    &::before {
+      border-left: none;
+      border-right-color: rgba(16, 22, 26, 0.1);
+      right: -14px;
+    }
+
+    &::after {
+      border-left: none;
+      border-right-color: $white;
+      right: -13px;
+    }
+  }
+
+  &.kz-minimal {
+    box-shadow: 0 1px 1px rgba(16, 22, 26, 0.2);
+  }
+}

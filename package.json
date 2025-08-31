@@ -1,0 +1,77 @@
+{
+    "name": "@kizilui/root",
+    "version": "0.0.0",
+    "private": true,
+    "description": "A React UI toolkit for the web.",
+    "packageManager": "yarn@4.0.2",
+    "workspaces": [
+        "packages/*",
+        "apps/*"
+    ],
+    "scripts": {
+        "bundle": "nx run-many -t bundle",
+        "compile": "nx run-many -t compile",
+        "clean": "nx run-many -t clean",
+        "copy:ci-config": "mkdir -p site/.circleci && cp .circleci/config-gh-pages.yml site/.circleci/config.yml",
+        "copy:docs-app": "cp -rf packages/docs-app/dist/ site/docs",
+        "copy:landing-app": "cp -rf packages/landing-app/dist/ site",
+        "deploy": "gh-pages -d site -b gh-pages",
+        "dev": "nx run-many -t dev --exclude @kizilui/landing-app @kizilui/table-dev-app",
+        "dev:core": "nx run-many -t dev -p @kizilui/core @kizilui/icons",
+        "dev:storybook": "nx dev @kizilui/storybook",
+        "dist": "nx run-many -t dist",
+        "docs-data": "nx compile @kizilui/docs-data",
+        "format": "prettier --write \"./**/*.{js,jsx,mjs,ts,tsx,scss,md}\"",
+        "format-check": "prettier --check \"./**/*.{js,jsx,mjs,ts,tsx,scss,md}\"",
+        "lint": "nx run-many -t lint",
+        "lint-fix": "nx run-many -t lint-fix",
+        "lint:eslint": "node ./packages/build-scripts/scripts/es-lint.js .",
+        "lint:eslint:fix": "node ./packages/build-scripts/scripts/es-lint.js --fix .",
+        "release": "lerna publish",
+        "test": "nx run-many -t test",
+        "verify": "npm-run-all -s compile dist -p test lint format-check"
+    },
+    "devDependencies": {
+        "@eslint/js": "^8.57.0",
+        "@lerna-lite/cli": "^3.3.1",
+        "@types/node": "^20.11.0",
+        "@typescript-eslint/eslint-plugin": "~7.18.0",
+        "@typescript-eslint/parser": "~7.18.0",
+        "chai": "^4.3.7",
+        "eslint": "~8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-react": "~7.35.0",
+        "eslint-plugin-react-hooks": "~4.6.0",
+        "gh-pages": "^6.1.1",
+        "karma": "^6.4.2",
+        "karma-chrome-launcher": "^3.2.0",
+        "karma-coverage": "^2.2.1",
+        "karma-junit-reporter": "^2.0.1",
+        "karma-mocha": "^2.0.1",
+        "karma-sourcemap-loader": "^0.4.0",
+        "karma-webpack": "^5.0.0",
+        "mocha": "^10.2.0",
+        "npm-run-all": "^4.1.5",
+        "nx": "^18.0.4",
+        "prettier": "~3.2.5",
+        "react": "^19",
+        "react-dom": "19.1.1",
+        "sinon": "^17.0.1",
+        "typescript": "~5.3.3",
+        "vite": "^5.0.0",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4"
+    },
+    "engines": {
+        "node": ">=20.11"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-org/kizilui.git"
+    },
+    "bugs": {
+        "url": "https://github.com/your-org/kizilui/issues"
+    },
+    "license": "Apache-2.0",
+    "author": "Emre Kiziltoprak"
+}

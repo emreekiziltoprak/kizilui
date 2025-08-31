@@ -1,0 +1,208 @@
+@import "../variables";
+
+.kz-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-size: $font-size;
+  height: $button-height;
+  line-height: $button-height - 2px;
+  min-width: $button-height;
+  padding: 0 ($grid-size * 1.2);
+  text-align: center;
+  vertical-align: middle;
+  background-color: $light-gray1;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
+  color: $gray1;
+  text-decoration: none;
+  transition: all $transition-duration $transition-ease;
+  position: relative;
+
+  &:hover {
+    background-clip: padding-box;
+    background-color: $light-gray2;
+    box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
+  }
+
+  &:active,
+  &.kz-active {
+    background-color: $light-gray3;
+    background-image: none;
+    box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 1px 2px rgba(16, 22, 26, 0.2);
+  }
+
+  &:disabled,
+  &.kz-disabled {
+    background-color: rgba(206, 217, 224, 0.5);
+    background-image: none;
+    box-shadow: none;
+    color: rgba(92, 112, 128, 0.6);
+    cursor: not-allowed;
+    outline: none;
+  }
+
+  &.kz-large {
+    font-size: $font-size-large;
+    height: $button-height-large;
+    line-height: $button-height-large - 2px;
+    min-width: $button-height-large;
+  }
+
+  &.kz-small {
+    font-size: $font-size-small;
+    height: $button-height-small;
+    line-height: $button-height-small - 2px;
+    min-width: $button-height-small;
+    padding: 0 ($grid-size * 0.7);
+  }
+
+  &.kz-minimal {
+    background: none;
+    box-shadow: none;
+
+    &:hover {
+      background: rgba(167, 182, 194, 0.3);
+      box-shadow: none;
+    }
+
+    &:active,
+    &.kz-active {
+      background: rgba(115, 134, 148, 0.3);
+      box-shadow: none;
+    }
+  }
+
+  &.kz-outlined {
+    background: transparent;
+    box-shadow: none;
+    border: 1px solid rgba(16, 22, 26, 0.2);
+
+    &:hover {
+      box-shadow: none;
+      border-color: rgba(16, 22, 26, 0.4);
+    }
+
+    &:active,
+    &.kz-active {
+      background: rgba(16, 22, 26, 0.1);
+      box-shadow: none;
+    }
+  }
+
+  &.kz-fill {
+    display: flex;
+    width: 100%;
+  }
+
+  &.kz-loading {
+    .kz-button-spinner {
+      margin-right: $grid-size * 0.5;
+    }
+  }
+
+  // Intent colors
+  &.kz-intent-primary {
+    background-color: $primary-color;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.4), inset 0 -1px 0 rgba(16, 22, 26, 0.2);
+    color: #ffffff;
+
+    &:hover {
+      background-color: lighten($primary-color, 5%);
+    }
+
+    &:active,
+    &.kz-active {
+      background-color: darken($primary-color, 5%);
+    }
+  }
+
+  &.kz-intent-success {
+    background-color: $success-color;
+    color: #ffffff;
+
+    &:hover {
+      background-color: lighten($success-color, 5%);
+    }
+  }
+
+  &.kz-intent-warning {
+    background-color: $warning-color;
+    color: #ffffff;
+
+    &:hover {
+      background-color: lighten($warning-color, 5%);
+    }
+  }
+
+  &.kz-intent-danger {
+    background-color: $danger-color;
+    color: #ffffff;
+
+    &:hover {
+      background-color: lighten($danger-color, 5%);
+    }
+  }
+}
+
+.kz-button-group {
+  display: inline-flex;
+
+  .kz-button {
+    border-radius: 0;
+
+    &:first-child {
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+    }
+
+    &:last-child {
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+  }
+
+  &.kz-vertical {
+    flex-direction: column;
+
+    .kz-button {
+      &:first-child {
+        border-radius: $border-radius $border-radius 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 $border-radius $border-radius;
+      }
+
+      &:not(:first-child) {
+        margin-left: 0;
+        margin-top: -1px;
+      }
+    }
+  }
+
+  &.kz-fill {
+    display: flex;
+    width: 100%;
+
+    .kz-button {
+      flex: 1;
+    }
+  }
+}
+
+.kz-button-text {
+  display: inline;
+}
+
+.kz-button-spinner {
+  margin-right: $grid-size * 0.5;
+}

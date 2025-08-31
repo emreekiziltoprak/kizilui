@@ -1,0 +1,32 @@
+@import "../variables";
+
+.kz-tooltip {
+  @include running-typography-small();
+  
+  background: rgba(92, 112, 128, 0.9);
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 2px 4px rgba(16, 22, 26, 0.2), 0 8px 24px rgba(16, 22, 26, 0.2);
+  color: $white;
+  max-width: 350px;
+  padding: 5px 8px;
+
+  .kz-tooltip-content {
+    text-align: center;
+  }
+
+  &.kz-dark {
+    background: rgba(16, 22, 26, 0.9);
+    box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.2), 0 2px 4px rgba(16, 22, 26, 0.4), 0 8px 24px rgba(16, 22, 26, 0.4);
+    color: $white;
+  }
+
+  &.kz-minimal {
+    background: $white;
+    box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.15), 0 2px 4px rgba(16, 22, 26, 0.2);
+    color: $dark-gray1;
+  }
+}
+
+.kz-tooltip-target {
+  cursor: help;
+}

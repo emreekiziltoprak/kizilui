@@ -1,0 +1,10 @@
+@import "../variables";
+
+.kz-text {
+  &.kz-text-overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+}

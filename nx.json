@@ -1,0 +1,54 @@
+{
+  "extends": "nx/presets/npm.json",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "main",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": ["default", "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)", "!{projectRoot}/tsconfig.spec.json"],
+    "sharedGlobals": []
+  },
+  "targetDefaults": {
+    "compile": {
+      "dependsOn": ["^compile"],
+      "cache": true,
+      "outputs": ["{projectRoot}/lib"]
+    },
+    "compile:esm": {
+      "dependsOn": ["^compile:esm"],
+      "cache": true,
+      "outputs": ["{projectRoot}/lib/esm"]
+    },
+    "compile:cjs": {
+      "dependsOn": ["^compile:cjs"],
+      "cache": true,
+      "outputs": ["{projectRoot}/lib/cjs"]
+    },
+    "compile:css": {
+      "cache": true,
+      "outputs": ["{projectRoot}/lib/css"]
+    },
+    "bundle": {
+      "dependsOn": ["compile"],
+      "cache": true,
+      "outputs": ["{projectRoot}/dist"]
+    },
+    "test": {
+      "dependsOn": ["compile"],
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "dev": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["compile", "bundle"],
+      "cache": true,
+      "outputs": ["{projectRoot}/lib", "{projectRoot}/dist"]
+    }
+  }
+}

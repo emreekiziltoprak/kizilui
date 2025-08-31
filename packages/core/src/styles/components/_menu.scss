@@ -1,0 +1,169 @@
+@import "../variables";
+
+.kz-menu {
+  background: $white;
+  border-radius: $border-radius;
+  color: $dark-gray1;
+  list-style: none;
+  margin: 0;
+  min-width: 180px;
+  padding: $grid-size / 2;
+  text-align: left;
+  box-shadow: $elevation-shadow-1;
+
+  .kz-menu-item {
+    align-items: center;
+    border-radius: $border-radius;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    line-height: 20px;
+    padding: ($grid-size / 2) ($grid-size - 3px);
+    text-decoration: none;
+    position: relative;
+    user-select: none;
+
+    &:hover:not(.kz-disabled) {
+      background-color: $light-gray4;
+      color: $dark-gray1;
+      text-decoration: none;
+    }
+
+    &.kz-active {
+      background-color: $blue3;
+      color: $white;
+    }
+
+    &:active:not(.kz-disabled) {
+      background-color: $blue4;
+      color: $white;
+    }
+
+    &.kz-disabled {
+      background-color: inherit !important;
+      color: $gray1 !important;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .kz-menu-item-icon {
+      margin-right: $grid-size;
+      flex-shrink: 0;
+    }
+
+    .kz-menu-item-label {
+      flex: 1 1 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .kz-menu-item-text {
+      // Text content within the label
+    }
+
+    .kz-menu-item-shortcut {
+      color: $gray1;
+      margin-left: auto;
+      padding-left: $grid-size;
+      font-size: 12px;
+    }
+
+    .kz-menu-item-right-icon {
+      margin-left: $grid-size / 2;
+      flex-shrink: 0;
+    }
+
+    .kz-menu-item-submenu-icon {
+      margin-left: $grid-size / 2;
+      flex-shrink: 0;
+    }
+
+    // Intent colors
+    &.kz-intent-primary {
+      color: $blue2;
+    }
+
+    &.kz-intent-success {
+      color: $green2;
+    }
+
+    &.kz-intent-warning {
+      color: $orange2;
+    }
+
+    &.kz-intent-danger {
+      color: $red2;
+    }
+  }
+
+  .kz-menu-header {
+    color: $gray1;
+    cursor: default;
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    margin: 0;
+    padding: ($grid-size / 2) ($grid-size - 3px) ($grid-size / 4);
+    text-transform: uppercase;
+    user-select: none;
+
+    &:not(:first-child) {
+      border-top: 1px solid $pt-divider-black;
+      padding-top: $grid-size;
+    }
+  }
+
+  .kz-menu-divider {
+    border-top: 1px solid $pt-divider-black;
+    display: block;
+    margin: ($grid-size / 2) 0;
+  }
+
+  &.kz-large .kz-menu-item {
+    font-size: 16px;
+    line-height: 22px;
+    padding: ($grid-size - 1px) ($grid-size - 3px);
+  }
+}
+
+.kz-context-menu .kz-menu {
+  box-shadow: $elevation-shadow-2;
+}
+
+// Dark theme support
+.kz-dark .kz-menu {
+  background: $dark-gray3;
+  color: $light-gray5;
+
+  .kz-menu-item {
+    &:hover:not(.kz-disabled) {
+      background-color: rgba($gray1, 0.15);
+      color: $light-gray5;
+    }
+
+    &.kz-active {
+      background-color: $blue3;
+      color: $white;
+    }
+
+    &:active:not(.kz-disabled) {
+      background-color: $blue4;
+      color: $white;
+    }
+
+    &.kz-disabled {
+      color: $dark-gray1 !important;
+    }
+  }
+
+  .kz-menu-header {
+    color: $gray5;
+  }
+
+  .kz-menu-divider {
+    border-top-color: $dark-gray5;
+  }
+}

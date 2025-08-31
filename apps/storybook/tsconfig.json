@@ -1,0 +1,33 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "strict": false,
+    "target": "ES2020",
+    "baseUrl": ".",
+    "paths": {
+      "@kizilui/core": ["../../packages/core/src/index.ts"],
+      "@kizilui/core/*": ["../../packages/core/src/*"],
+      "@kizilui/icons": ["../../packages/icons/src/index.ts"],
+      "@kizilui/icons/*": ["../../packages/icons/src/*"],
+      "@kizilui/colors": ["../../packages/colors/src/index.ts"],
+      "@kizilui/colors/*": ["../../packages/colors/src/*"]
+    }
+  },
+  "include": [
+    "../../packages/*/src/**/*",
+    ".storybook/**/*",
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "storybook-static"
+  ]
+}

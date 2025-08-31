@@ -1,0 +1,73 @@
+{
+    "name": "@kizilui/icons",
+    "version": "1.0.0",
+    "description": "Components, fonts, icons, and css files for creating and displaying icons.",
+    "main": "lib/cjs/generated/index.js",
+    "module": "lib/esm/generated/index.js",
+    "esnext": "lib/esnext/generated/index.js",
+    "typings": "lib/esm/generated/index.d.ts",
+    "style": "lib/css/kizilui-icons.css",
+    "files": [
+        "lib",
+        "src",
+        "icons.json"
+    ],
+    "sideEffects": [
+        "**/*.css"
+    ],
+    "scripts": {
+        "clean": "rm -rf dist/* || rm -rf lib/**/* || rm -rf src/generated/* || true",
+        "compile": "npm-run-all -s \"generate-icon-src\" -p \"compile:*\" -p \"copy:*\"",
+        "compile:esm": "tsc -p ./src",
+        "compile:cjs": "tsc -p ./src -m commonjs --verbatimModuleSyntax false --outDir lib/cjs",
+        "compile:esnext": "tsc -p ./src -t esnext --outDir lib/esnext",
+        "compile:css": "sass-compile ./src",
+        "copy:scss": "scripts/copy-scss.sh",
+        "copy:fonts": "scripts/copy-fonts.sh",
+        "dev": "run-p \"compile:esm --watch\" \"compile:css --watch\"",
+        "dist": "run-s \"dist:*\"",
+        "dist:css": "css-dist lib/css",
+        "dist:verify": "assert-package-layout",
+        "generate-icon-src": "node scripts/generate-icon-fonts.mjs && node scripts/generate-icon-paths.mjs && node scripts/generate-icon-components.mjs",
+        "lint": "run-p lint:scss lint:es",
+        "lint:scss": "sass-lint",
+        "lint:es": "es-lint",
+        "lint-fix": "yarn lint:eslint:fix",
+        "test": "karma start",
+        "verify": "npm-run-all compile -p dist test lint"
+    },
+    "peerDependencies": {
+        "react": "^16.8 || 17 || 18",
+        "react-dom": "^16.8 || 17 || 18"
+    },
+    "dependencies": {
+        "@kizilui/core": "workspace:^",
+        "classnames": "^2.3.2",
+        "tslib": "~2.6.2"
+    },
+    "devDependencies": {
+        "@kizilui/node-build-scripts": "workspace:^",
+        "@types/react": "^18.2.38",
+        "@types/react-dom": "^18.2.17",
+        "karma": "^6.4.2",
+        "mocha": "^10.2.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "typescript": "~5.3.3",
+        "webpack": "^5.89.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:your-org/kizilui.git",
+        "directory": "packages/icons"
+    },
+    "keywords": [
+        "kizilui",
+        "icons",
+        "react"
+    ],
+    "license": "Apache-2.0",
+    "publishConfig": {
+        "access": "public"
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "name": "@kizilui/node-build-scripts",
+    "version": "1.0.0",
+    "description": "Node build scripts for KizilUI packages",
+    "private": true,
+    "main": "lib/cjs/index.js",
+    "module": "lib/esm/index.js",
+    "typings": "lib/esm/index.d.ts",
+    "files": [
+        "lib",
+        "src",
+        "scripts"
+    ],
+    "bin": {
+        "es-lint": "scripts/es-lint.js"
+    },
+    "scripts": {
+        "clean": "rm -rf lib/* || true",
+        "compile": "run-p \"compile:*\"",
+        "compile:esm": "tsc -p ./src",
+        "compile:cjs": "tsc -p ./src -m commonjs --verbatimModuleSyntax false --outDir lib/cjs",
+        "dev": "run-p \"compile:esm --watch\"",
+        "lint": "npm-run-all -p lint:es",
+        "lint:es": "es-lint",
+        "lint-fix": "yarn lint:eslint:fix",
+        "verify": "npm-run-all compile lint"
+    },
+    "dependencies": {
+        "sass": "^1.69.0",
+        "tslib": "~2.6.2",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4"
+    },
+    "devDependencies": {
+        "mocha": "^10.2.0",
+        "typescript": "~5.3.3"
+    },
+    "repository": {
+        "type": "git",
+        "directory": "packages/build-scripts"
+    },
+    "keywords": [
+        "kizilui",
+        "build",
+        "tools"
+    ],
+    "license": "Apache-2.0"
+}
